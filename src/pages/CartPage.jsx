@@ -3,11 +3,11 @@ import Hero from "../components/Hero";
 import cartBg from "../images/storeBcg.jpeg";
 import CartSection from "../components/CartPage";
 
-export default function CartPage() {
+export default function CartPage(props) {
   return (
     <>
       <Hero img={cartBg} />
-      <CartSection />
+      <CartSection history={props.history} />
     </>
   );
 }
