@@ -6,7 +6,7 @@ import Featured from "../components/HomePage/Featured";
 export default function HomePage() {
   return (
     <>
-      <Hero title="Awesome blowjobs" max="true">
+      <Hero title="Awesome Products" max="true">
         <Link className="main-link" style={{ margin: "2rem" }} to="/products">
           Our Products
         </Link>
