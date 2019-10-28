@@ -11,6 +11,7 @@ export default function FilterProducts() {
           min,
           max,
           company,
+          category,
           price,
           shipping,
           handleChange,
@@ -18,11 +19,17 @@ export default function FilterProducts() {
         } = value;
 
         let companies = new Set();
+        let categories = new Set();
+        categories.add("all");
         companies.add("all");
         for (let product in storeProducts) {
           companies.add(storeProducts[product]["company"]);
         }
+        for (let product in storeProducts) {
+          categories.add(storeProducts[product]["category"]);
+        }
         companies = [...companies];
+        categories = [...categories];
         return (
           <div className="row my-5">
             <div className="col-10 mx-auto">
@@ -40,7 +47,7 @@ export default function FilterProducts() {
                   />
                 </div>
                 {/** END OF text search */}
-                {/** category search */}
+                {/** company search */}
 
                 <div>
                   <label htmlFor="company">company</label>
@@ -60,7 +67,29 @@ export default function FilterProducts() {
                     })}
                   </select>
                 </div>
+                {/** END OF company search */}
+
+                {/** category search */}
+                <div>
+                  <label htmlFor="category">category</label>
+                  <select
+                    name="category"
+                    id="category"
+                    onChange={handleChange}
+                    value={category}
+                    className="filter-item"
+                  >
+                    {categories.map((category, index) => {
+                      return (
+                        <option key={index} value={category}>
+                          {category}
+                        </option>
+                      );
+                    })}
+                  </select>
+                </div>
                 {/** END OF category search */}
+
                 {/** price range search */}
 
                 <div>
@@ -74,7 +103,7 @@ export default function FilterProducts() {
                     name="price"
                     id="price"
                     min={min}
-                    max={max}
+                    max={max + 1}
                     className="filter-price"
                     value={price}
                     onChange={handleChange}

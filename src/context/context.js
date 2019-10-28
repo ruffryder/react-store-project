@@ -26,6 +26,7 @@ class ProductProvider extends Component {
     min: 0,
     max: 0,
     company: "all",
+    category: "all",
     shipping: false
   };
 
@@ -271,15 +272,28 @@ class ProductProvider extends Component {
 
   //sort data
   sortData = () => {
-    const { storeProducts, price, company, shipping, search } = this.state;
+    const {
+      storeProducts,
+      price,
+      company,
+      category,
+      shipping,
+      search
+    } = this.state;
     const tempPrice = parseInt(price);
     let tempProducts = [...storeProducts];
     //filter based on company value
     if (company !== "all") {
       tempProducts = tempProducts.filter(item => item.company === company);
     }
+    // filter based on category value
+    if (category !== "all") {
+      tempProducts = tempProducts.filter(item => item.category === category);
+    }
     //filter based on price value
-    tempProducts = tempProducts.filter(item => item.price <= tempPrice);
+    tempProducts = tempProducts.filter(item => {
+      return item.price <= tempPrice;
+    });
     //filter based on shipping value
 
     if (shipping) {

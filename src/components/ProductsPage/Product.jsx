@@ -15,7 +15,7 @@ export default function Product({ product }) {
               <div className="img-container">
                 <img
                   src={product.image}
-                  className="card-img-top p-5"
+                  className="card-img-top"
                   alt="product"
                   style={{ height: "300px" }}
                 />
@@ -49,6 +49,7 @@ const ProductWrapper = styled.div`
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.3);
     transition: var(--mainTransition);
     height: 100%;
+    overflow: hidden;
   }
   .card:hover {
     cursor: pointer;
@@ -57,8 +58,8 @@ const ProductWrapper = styled.div`
     transition: var(--mainTransition);
   }
   .card:hover .card-img-top {
-    transform: scale(1.2);
-    opacity: 0.2;
+    transform: scale(1.1);
+    opacity: 0.4;
   }
   .img-container {
     position: relative;

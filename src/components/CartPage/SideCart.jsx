@@ -35,7 +35,7 @@ export default function SideCart() {
               cart total: ${cartTotal}
             </h4>
             <div className="text-center my-5">
-              <Link to="/cart" className="main-link">
+              <Link onClick={closeCart} to="/cart" className="main-link">
                 cart page
               </Link>
             </div>
