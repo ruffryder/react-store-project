@@ -1,8 +1,9 @@
 import React from "react";
 import { FaBars, FaCartPlus } from "react-icons/fa";
 import styled from "styled-components";
-import { ProductConsumer } from "../context";
-import logo from "../images/logo.svg";
+import { ProductConsumer } from "../../context/context";
+import logo from "../../images/logo.png";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
@@ -13,7 +14,9 @@ export default function Navbar() {
           <NavWrapper>
             <div className="nav-center">
               <FaBars className="nav-icon" onClick={toggleSidebar} />
-              <img src={logo} alt="store logo" />
+              <Link className="logo-container" to="/">
+                <img src={logo} alt="store logo" />
+              </Link>
               <div className="nav-cart">
                 <FaCartPlus
                   className="cart-icon"
@@ -43,18 +46,21 @@ const NavWrapper = styled.nav`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1170px;
+    max-width: 1280px;
     margin: 0 auto;
   }
+  .logo-container {
+    width: 25%;
+  }
   .nav-icon {
-    font-size: 1.5rem;
+    font-size: 3rem;
     cursor: pointer;
   }
   .nav-cart {
     position: relative;
   }
   .cart-items {
-    background: var(--primaryColor);
+    background: var(--mainBlack);
     color: var(--mainWhite);
     font-size: 0.85rem;
     position: absolute;
@@ -62,5 +68,18 @@ const NavWrapper = styled.nav`
     right: -8px;
     padding: 0 5px;
     border-radius: 50%;
+  }
+  .cart-icon {
+    color: var(--primaryColor);
+    font-size: 24px;
+  }
+
+  @media screen and (min-width: 601px) {
+    .logo-container {
+      width: 15%;
+    }
+    .cart-icon {
+      font-size: 32px;
+    }
   }
 `;

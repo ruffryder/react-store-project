@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { FaSearch, FaCartPlus } from "react-icons/fa";
-import { ProductConsumer } from "../context";
+import { ProductConsumer } from "../../context";
 
 export default function Product({ product }) {
   return (
@@ -10,7 +10,7 @@ export default function Product({ product }) {
       {value => {
         const { addToCart, setSingleProduct } = value;
         return (
-          <ProductWrapper className="col-10 mx-auto col-sm-8 col-md-6 col-lg-4 my-3">
+          <ProductWrapper className="col-10 mx-auto col-sm-6 col-md-4 col-lg-3 my-3">
             <div className="card">
               <div className="img-container">
                 <img
@@ -33,8 +33,8 @@ export default function Product({ product }) {
                 </div>
               </div>
               <div className="cart-body d-flex justify-content-between">
-                <p className="mb-0">{product.title}</p>
-                <p className="mb-0 text-main">${product.price}</p>
+                <p className="mb-0 p-3">{product.title}</p>
+                <p className="mb-0 text-main p-3">${product.price}</p>
               </div>
             </div>
           </ProductWrapper>
@@ -51,7 +51,6 @@ const ProductWrapper = styled.div`
     height: 100%;
   }
   .card:hover {
-    box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.5);
     cursor: pointer;
   }
   .card-img-top {
@@ -71,10 +70,12 @@ const ProductWrapper = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
   }
   .icon {
-    font-size: 2.5rem;
-    margin: 1rem;
+    font-size: 3.5rem;
     padding: 0.5rem;
     color: var(--primaryColor);
     background: var(--mainBlack);

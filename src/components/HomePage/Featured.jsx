@@ -1,7 +1,7 @@
 import React from "react";
-import Product from "../Product";
+import Product from "../ProductsPage/Product";
 import { Link } from "react-router-dom";
-import Title from "../Title";
+import Title from "../Title/Title";
 import { ProductConsumer } from "../../context";
 
 export default function Featured() {
@@ -9,7 +9,7 @@ export default function Featured() {
     <section className="py-5">
       <div className="container">
         <Title title="featured products" center="true"></Title>
-        <div className="row">
+        <div className="row mt-5">
           <ProductConsumer>
             {value => {
               const { featuredProducts } = value;
@@ -22,7 +22,7 @@ export default function Featured() {
         <div className="row mt-5">
           <div className="col text-center">
             <Link to="/products" className="main-link">
-              Our Products
+              SEE ALL PRODUCTS
             </Link>
           </div>
         </div>

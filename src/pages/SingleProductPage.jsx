@@ -1,13 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ProductConsumer } from "../context";
-import singleProductImage from "../images/singleProductBcg.jpeg";
-import Hero from "../components/Hero";
 
 export default function SingleProductPage() {
   return (
     <>
-      <Hero img={singleProductImage} title="single product" />
       <ProductConsumer>
         {value => {
           const { singleProduct, addToCart, loading } = value;
@@ -34,7 +31,7 @@ export default function SingleProductPage() {
                     />
                   </div>
                   <div className="col-10 mx-auto col-sm-8 col md-6 my-3">
-                    <h5 className="text-title mb-4">model: {title}</h5>
+                    <h5 className="text-title mb-4">Name: {title}</h5>
                     <h5 className="text-capitalize text-muted mb-4">
                       company:{company}
                     </h5>

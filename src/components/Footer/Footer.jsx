@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { ProductConsumer } from "../context";
-import { isTemplateElement } from "@babel/types";
+import { ProductConsumer } from "../../context";
 
 export default function Footer() {
   return (
@@ -11,7 +10,7 @@ export default function Footer() {
           <FooterWrapper>
             <div className="container py-3">
               <div className="row">
-                <div className="col-md-6">
+                <div className="col-md-6 text-center text-md-left">
                   <p className="text-capitalize">
                     copyright &copy; store{new Date().getFullYear()}. all rights
                     reserved
@@ -39,8 +38,8 @@ const FooterWrapper = styled.footer`
   background: var(--darkGrey);
   color: var(--mainWhite);
   .icon {
-    font-size: 1.5rem;
-    color: var(--mainWhite);
+    font-size: 3rem;
+    color: var(--mainGrey);
     transition: var(--mainTransition);
   }
   .icon:hover {

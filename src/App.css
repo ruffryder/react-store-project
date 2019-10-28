@@ -1,20 +1,33 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans&display=swap");
 
 :root {
-  --primaryColor: #5fb7ea;
+  --primaryColor: #f89406;
   --primaryRGBA: rgba(0, 0, 0, 0.3);
   --mainGrey: #fafafa;
   --darkGrey: #5f5e5e;
   --mainWhite: #fff;
-  --mainBlack: #222;
+  --mainBlack: #000;
   --mainTransition: all 0.3s ease-in-out;
   --mainSpacing: 0.3rem;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
   font-family: "Open Sans", sans-serif !important;
+  font-size: 1.6rem !important;
   background: var(--mainGrey) !important;
   color: var(--mainBlack);
+}
+
+h1 {
+  font-size: 3.2rem !important;
+}
+
+img {
+  max-width: 100%;
 }
 .text-title {
   font-family: "Montserrat", sans-serif;
@@ -23,14 +36,19 @@ body {
   text-transform: capitalize;
 }
 
+.cart-icon {
+  cursor: pointer;
+}
+
 .text-main {
   color: var(--primaryColor);
 }
 
 .main-link {
-  padding: 0.5rem 1rem;
+  font-size: 1.4rem;
+  padding: 0.8rem 1.5rem;
   background: var(--primaryColor);
-  color: var(--mainWhite);
+  color: var(--mainGrey);
   display: inline-block;
   text-transform: uppercase;
   letter-spacing: var(--mainSpacing);
@@ -40,12 +58,16 @@ body {
 }
 
 .main-link:hover {
-  background: var(--darkGrey);
+  background: var(--mainBlack);
   text-decoration: none;
   color: var(--primaryColor);
-  outline-color: var(--darkGrey);
+  outline-color: var(--mainBlack);
 }
 
-.cart-icon {
-  cursor: pointer;
+.primary-text {
+  color: var(--primaryColor);
+}
+
+.form-control {
+  font-size: 1.6rem !important;
 }

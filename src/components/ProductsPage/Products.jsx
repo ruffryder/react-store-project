@@ -1,7 +1,7 @@
 import React from "react";
 import { ProductConsumer } from "../../context";
-import Title from "../Title";
-import Product from "../Product";
+import Title from "../Title/Title";
+import Product from "./Product";
 import ProductFilter from "./ProductFilter";
 
 export default function Products() {
@@ -15,8 +15,7 @@ export default function Products() {
               <Title center title="our products" />
               <ProductFilter />
               <div className="row">
-                <div className="col-10 mx-auto"></div>
-                <h6 className="text-title">
+                <h6 className="col-6 mx-auto text-title text-center">
                   total products: {filteredProducts.length}
                 </h6>
               </div>

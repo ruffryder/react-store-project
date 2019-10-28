@@ -1,12 +1,12 @@
 import React from "react";
-import Hero from "../components/Hero";
-import cartBg from "../images/storeBcg.jpeg";
+import Hero from "../components/Hero/Hero";
+import cartBg from "../images/cart_bg.png";
 import CartSection from "../components/CartPage";
 
 export default function CartPage(props) {
   return (
     <>
-      <Hero img={cartBg} />
+      <Hero minHeight={65} bgPosition="center 40%" img={cartBg} />
       <CartSection history={props.history} />
     </>
   );

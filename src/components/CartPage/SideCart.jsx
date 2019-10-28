@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { ProductConsumer } from "../context";
+import { ProductConsumer } from "../../context";
 import { Link } from "react-router-dom";
+import { FaArrowAltCircleRight } from "react-icons/fa";
 
 export default function SideCart() {
   return (
@@ -9,7 +10,12 @@ export default function SideCart() {
       {value => {
         const { cart, isCartOpen, closeCart, cartTotal } = value;
         return (
-          <CartWrapper show={isCartOpen} onClick={closeCart}>
+          <CartWrapper show={isCartOpen}>
+            <div className="close_button_container">
+              <div onClick={closeCart} className="close_button">
+                <FaArrowAltCircleRight />
+              </div>
+            </div>
             <ul>
               {cart.map(item => {
                 return (
@@ -56,10 +62,26 @@ const CartWrapper = styled.div`
   }
   overflow: scroll;
   padding: 2rem;
+  padding-top: 0.5rem;
   ul {
     padding: 0 !important;
   }
   .cart-item {
     list-style: none;
+  }
+
+  .close_button_container {
+    text-align: left;
+    margin-bottom: 3rem;
+  }
+
+  .close_button {
+    color: var(--primaryColor);
+    font-size: 3.5rem;
+    cursor: pointer;
+    transition: var(--mainTransition);
+  }
+  .close_button:hover {
+    transform: translateX(1rem);
   }
 `;

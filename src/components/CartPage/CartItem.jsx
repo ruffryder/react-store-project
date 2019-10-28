@@ -22,19 +22,18 @@ export default function CartItem({
         {title}
       </div>
       <div className="col-10 mx-auto col-lg-2 pb-2">
-        <span className="d-lg-none">price: $</span>
-        {price}
+        <span className="d-lg-none">price: </span>${price}
       </div>
       <div className="col-10 mx-auto col-lg-2 my-2  my-lg-0 pb-2">
         <div className="d-flex justify-content-center">
           <div>
             <FaChevronCircleDown
-              className="cart-icon text-primary"
+              className="cart-icon primary-text"
               onClick={() => decrement(id)}
             />
             <span className="text-title text-muted mx-3">{count}</span>
             <FaChevronCircleUp
-              className="cart-icon text-primary"
+              className="cart-icon primary-text"
               onClick={() => increment(id)}
             />
           </div>

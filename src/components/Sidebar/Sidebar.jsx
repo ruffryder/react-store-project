@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { ProductConsumer } from "../context";
+import { ProductConsumer } from "../../context/context";
+import { FaArrowAltCircleLeft } from "react-icons/fa";
 
 export default function Sidebar() {
   return (
@@ -10,6 +11,11 @@ export default function Sidebar() {
         const { links, isSidebarOpen, toggleSidebar } = value;
         return (
           <SideWrapper show={isSidebarOpen}>
+            <div className="close_button_container">
+              <div className="close_button" onClick={toggleSidebar}>
+                <FaArrowAltCircleLeft />
+              </div>
+            </div>
             <ul>
               {links.map(link => {
                 return (
@@ -46,6 +52,23 @@ const SideWrapper = styled.nav`
   ul {
     list-style: none;
     padding: 0 !important;
+  }
+
+  .close_button_container {
+    margin-top: 1rem;
+    margin-right: 0.5rem;
+    text-align: right;
+  }
+
+  .close_button {
+    color: var(--primaryColor);
+    font-size: 3.5rem;
+    cursor: pointer;
+    padding: 1rem;
+    transition: var(--mainTransition);
+  }
+  .close_button:hover {
+    transform: translateX(-1rem);
   }
   .sidebar-link {
     display: block;
