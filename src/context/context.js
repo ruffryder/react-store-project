@@ -165,7 +165,6 @@ class ProductProvider extends Component {
   };
 
   toggleSidebar = () => {
-    console.log("duck");
     this.setState(prevState => {
       return {
         isSidebarOpen: !prevState.isSidebarOpen

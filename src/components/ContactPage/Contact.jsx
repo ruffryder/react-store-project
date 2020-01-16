@@ -12,13 +12,14 @@ class Contact extends Component {
       email: "",
       subject: "",
       message: ""
-    }
+    },
+    isFormValid: false
   };
 
   validateField = (name, value) => {
     let errors = { ...this.state.errors };
     const validEmailRegex = RegExp(
-      /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+      /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i
     );
     switch (name) {
       case "name":
@@ -73,22 +74,53 @@ class Contact extends Component {
     });
   };
 
-  validateForm = errors => {
+  validateForm = () => {
     let valid = true;
-    Object.values(errors).forEach(
-      // if we have an error string set valid to false
-      val => val.length > 0 && (valid = false)
-    );
+    let errors = this.validateField("name", this.state.name);
+    if (errors.name.length > 0) {
+      this.setState({ errors });
+      valid = false;
+      return valid;
+    }
+    errors = this.validateField("email", this.state.email);
+    if (errors.email.length > 0) {
+      this.setState({ errors });
+      valid = false;
+      return valid;
+    }
+    errors = this.validateField("subject", this.state.subject);
+    if (errors.subject.length > 0) {
+      this.setState({ errors });
+      valid = false;
+      return valid;
+    }
+    errors = this.validateField("message", this.state.message);
+    if (errors.message.length > 0) {
+      this.setState({ errors });
+      valid = false;
+      return valid;
+    }
     return valid;
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    if (this.validateForm(this.state.errors)) {
-      console.info("Valid Form");
-    } else {
-      console.error("Invalid Form");
+    const errors = this.validateForm();
+    if (errors) {
+      this.setState({
+        isFormValid: true,
+        name: "",
+        email: "",
+        subject: "",
+        message: ""
+      });
     }
+  };
+
+  handleCloseAlert = () => {
+    this.setState({
+      isFormValid: false
+    });
   };
   render() {
     const { errors } = this.state;
@@ -97,6 +129,23 @@ class Contact extends Component {
         <div className="row">
           <div className="col-10 mx-auto col-md-4">
             <Title title="contact us" center></Title>
+            {this.state.isFormValid && (
+              <div
+                className="alert alert-success alert-dismissible fade show mt-3"
+                role="alert"
+              >
+                <button
+                  type="button"
+                  className="close"
+                  data-dismiss="alert"
+                  aria-label="Close"
+                  onClick={this.handleCloseAlert}
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                Your message has been sent successfully.
+              </div>
+            )}
             <form
               className="mt-5"
               method="POST"
