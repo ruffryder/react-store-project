@@ -1,6 +1,6 @@
 import React from "react";
 
-import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 
 export const socialData = [
   {
@@ -11,11 +11,11 @@ export const socialData = [
   {
     id: 2,
     icon: <FaTwitter className="icon" />,
-    url: "https://facebook.com"
+    url: "https://twitter.com"
   },
   {
     id: 3,
-    icon: <FaLinkedin className="icon" />,
-    url: "https://facebook.com"
+    icon: <FaInstagram className="icon" />,
+    url: "https://instagram.com"
   }
 ];
