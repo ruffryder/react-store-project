@@ -17,7 +17,6 @@ export default function Product({ product }) {
                   src={product.image}
                   className="card-img-top"
                   alt="product"
-                  style={{ height: "300px" }}
                 />
                 <div className="product-icons">
                   <Link
